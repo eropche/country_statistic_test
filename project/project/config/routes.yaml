@@ -1,0 +1,3 @@
+v1:
+  resource: 'routes/v1/index.yaml'
+  condition: "request.headers.get('X-Api-Version') == 1"

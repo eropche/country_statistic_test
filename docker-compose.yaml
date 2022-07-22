@@ -1,0 +1,25 @@
+version: "3"
+services:
+  php:
+    build: ./docker/php
+    volumes:
+      - ./project/project:/project
+    depends_on:
+      - redis
+
+  nginx:
+    build: ./docker/nginx
+    restart: always
+    ports:
+      - "8030:80"
+    volumes:
+      - ./project/project:/project
+    depends_on:
+      - php
+
+  redis:
+    container_name: country_statistic_test_redis
+    image: "redis:alpine"
+    restart: always
+    expose:
+      - 6379

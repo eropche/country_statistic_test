@@ -1,0 +1,9 @@
+collect_statistic_country:
+    path: /stat/{countryCode}
+    controller: App\Application\Controller\StatisticController::addCountry
+    methods: POST
+
+get_statistic_country:
+    path: /stat/get-all
+    controller: App\Application\Controller\StatisticController::getAll
+    methods: GET
